@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: customer-service
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        prefer-ip-address: true
+        hostname: host.docker.internal
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_pizzeria_gula_customer_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimeZone=UTC&autoReconnect=true
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+management:
+  metrics:
+    tags:
+      application: customer-service
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+  server:
+    port: 8082
+
+server:
+    port: 8082
+
+
