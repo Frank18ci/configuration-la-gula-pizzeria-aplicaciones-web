@@ -1,6 +1,11 @@
 spring:
   application:
     name: ordening-service
+  rabbitmq:
+    username: user
+    password: password
+    host: localhost
+    port: 5672
   cloud:
     consul:
       host: localhost
