@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: email-service
+  rabbitmq:
+    username: user
+    password: password
+    host: localhost
+    port: 5672
+  mail:
+    host: ${EMAIL_HOST:587}
+    port: ${EMAIL_PORT:smtp.gmail.com}
+    username: ${EMAIL_USERNAME:fcarpio113@gmail.com}
+    password: ${EMAIL_PASSWORD:qfqdqzqwbanlligl}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        timeout: 5000
+
+server:
+  port: 8150
