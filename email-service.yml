@@ -6,6 +6,16 @@ spring:
     password: password
     host: localhost
     port: 5672
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        prefer-ip-address: true
+        hostname: host.docker.internal
   mail:
     host: ${EMAIL_HOST:587}
     port: ${EMAIL_PORT:smtp.gmail.com}
@@ -18,6 +28,18 @@ spring:
           starttls:
             enable: true
         timeout: 5000
-
+management:
+  metrics:
+    tags:
+      application: email-service
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+  server:
+    port: 8150
 server:
   port: 8150
