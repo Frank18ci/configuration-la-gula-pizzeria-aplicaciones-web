@@ -17,8 +17,8 @@ spring:
         prefer-ip-address: true
         hostname: host.docker.internal
   mail:
-    host: ${EMAIL_HOST:587}
-    port: ${EMAIL_PORT:smtp.gmail.com}
+    host: ${EMAIL_HOST:smtp.gmail.com}
+    port: ${EMAIL_PORT:587}
     username: ${EMAIL_USERNAME:fcarpio113@gmail.com}
     password: ${EMAIL_PASSWORD:qfqdqzqwbanlligl}
     properties:
